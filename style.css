@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  font-family: 'Arial', sans-serif;
+  background: #dbeafe;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,29 +9,31 @@ body {
 }
 
 .weather-container {
-  background-color: white;
+  text-align: center;
+  background: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 input {
   padding: 10px;
-  margin-top: 10px;
   width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
-  padding: 10px;
+  padding: 10px 20px;
   margin-left: 10px;
-  background-color: #007BFF;
+  background-color: #3b82f6;
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 #weatherResult {
   margin-top: 20px;
-  font-size: 1.2em;
+  font-size: 18px;
 }
