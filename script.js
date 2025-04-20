@@ -9,7 +9,7 @@ function getWeather() {
     return;
   }
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=&{city}&appid=ba59be2a775f07a3f868f6c40c103d5d&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={API key}&units=metric`;
 
   fetch(url)
     .then(response => {
