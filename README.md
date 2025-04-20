@@ -1,2 +1,2 @@
 # Weather-
-#URL:https://github.com/Ha11rini23/Weather-.git
+#URL:https://ha11rini23.github.io/Weather-/
