@@ -1,35 +1,25 @@
-const apiKey = 'ba59be2a775f07a3f868f6c40c103d5d'; // Replace this with your OpenWeatherMap API key
+const apiKey = 'd8433ad440d78d16bdd97ed604212469'; // Replace with your OpenWeatherMap API key
 
 function getWeather() {
   const city = document.getElementById('cityInput').value;
-  const resultDiv = document.getElementById('weatherResult');
-
-  if (!city) {
-    resultDiv.innerHTML = "Please enter a city name.";
-    return;
-  }
-
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={API key}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   fetch(url)
     .then(response => {
-      if (!response.ok) {
-        throw new Error("City not found");
-      }
+      if (!response.ok) throw new Error("City not found");
       return response.json();
     })
     .then(data => {
+      const weather = data.weather[0];
       const temp = data.main.temp;
-      const desc = data.weather[0].description;
-      const icon = data.weather[0].icon;
-      resultDiv.innerHTML = `
-        <p><strong>${data.name}</strong></p>
-        <p>${temp}°C</p>
-        <p>${desc}</p>
-        <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Weather icon" />
+      const result = `
+        <h2>${data.name}, ${data.sys.country}</h2>
+        <p><strong>${temp}°C</strong> - ${weather.description}</p>
+        <img src="https://openweathermap.org/img/wn/${weather.icon}@2x.png" alt="${weather.description}" />
       `;
+      document.getElementById('weatherResult').innerHTML = result;
     })
     .catch(error => {
-      resultDiv.innerHTML = "Error: " + error.message;
+      document.getElementById('weatherResult').innerHTML = `<p style="color:red;">${error.message}</p>`;
     });
 }
